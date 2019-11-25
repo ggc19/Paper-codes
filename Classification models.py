@@ -113,7 +113,7 @@ SVM_clf.fit(X_train, y_train)
 y_pred = SVM_clf.predict(X_test)
 y_prob = SVM_clf.predict_proba(X_test)
 SVM_con_matrix = confusion_matrix(y_test[:,0], y_pred)
-print('SVC accuracy：',(SVM_con_matrix[0,0]+SVM_con_matrix[1,1])/len(y_pred))
+print('SVM accuracy：',(SVM_con_matrix[0,0]+SVM_con_matrix[1,1])/len(y_pred))
 SVM_fpr, SVM_tpr, SVM_thresholds = roc_curve(y_test[:,0], y_prob[:,1])
 SVM_roc_auc = auc(SVM_fpr, SVM_tpr)
 
