@@ -107,15 +107,15 @@ print('RandomForest accuracy：',(RF_con_matrix[0,0]+RF_con_matrix[1,1])/len(y_p
 RF_fpr, RF_tpr, RF_thresholds = roc_curve(y_test[:,0], y_prob[:,1])
 RF_roc_auc = auc(RF_fpr, RF_tpr)
 
-'''-------------------------------------------SVC model----------------------------------------'''
-SVC_clf = SVC(kernel="rbf", C=1000, gamma="scale", probability=True)
-SVC_clf.fit(X_train, y_train)
-y_pred = SVC_clf.predict(X_test)
-y_prob = SVC_clf.predict_proba(X_test)
-SVC_con_matrix = confusion_matrix(y_test[:,0], y_pred)
-print('SVC accuracy：',(SVC_con_matrix[0,0]+SVC_con_matrix[1,1])/len(y_pred))
-SVC_fpr, SVC_tpr, SVC_thresholds = roc_curve(y_test[:,0], y_prob[:,1])
-SVC_roc_auc = auc(SVC_fpr, SVC_tpr)
+'''-------------------------------------------SVM model----------------------------------------'''
+SVM_clf = SVC(kernel="rbf", C=1000, gamma="scale", probability=True)
+SVM_clf.fit(X_train, y_train)
+y_pred = SVM_clf.predict(X_test)
+y_prob = SVM_clf.predict_proba(X_test)
+SVM_con_matrix = confusion_matrix(y_test[:,0], y_pred)
+print('SVC accuracy：',(SVM_con_matrix[0,0]+SVM_con_matrix[1,1])/len(y_pred))
+SVM_fpr, SVM_tpr, SVM_thresholds = roc_curve(y_test[:,0], y_prob[:,1])
+SVM_roc_auc = auc(SVM_fpr, SVM_tpr)
 
 '''-----------------------------------------DecesionTree model----------------------------------'''
 DT_clf = DecisionTreeClassifier(criterion='entropy',max_depth=100,min_samples_split=4,
