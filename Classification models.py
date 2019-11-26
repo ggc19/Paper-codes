@@ -18,7 +18,7 @@ from xgboost import XGBClassifier
 from sklearn.tree import DecisionTreeClassifier
 import scipy.io as scio
 from sklearn.neural_network import MLPClassifier
-# use gridsearch function to obtain the suitable parameters. 
+# Gridsearch function and 5-fold corss validaiton to obtain the suitable parameters. Here, we present the optimized parameters. 
 
 '''-------------------------------------read data--------------------------------------'''
 path1 = 'Data.mat'
