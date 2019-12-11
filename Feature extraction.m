@@ -1,7 +1,7 @@
 %%  Establish the 3D time frequency spectrogram
 clear;clc;
-Data_Iron=xlsread('Read_Data_Iron_1.xlsx');        % Iron cast pipe data
-Data_MDPE=xlsread('Read_Data_MDPE_1.xlsx');  % Plastic pipe data
+Data_Iron=xlsread('Read_Data_Iron_1.xlsx');       
+Data_MDPE=xlsread('Read_Data_MDPE_1.xlsx');  
 sample1=size(Data_Iron,1);  
 sample2=size(Data_MDPE,1);  
 samples = sample1+sample2;
@@ -19,7 +19,7 @@ for i =1: samples
     temp = Data(i+id, :);
     y = enframe(temp(2:end), win, inc)';    %  the data is framed
     fn = size(y,2);                                      %  fn is the number of frame
-    w2=wlen/2+1; n2=40 : w2-50;   % Data1: n2=10 : w2-20£»Data2: n2=20 : w2-30£»Data3: n2=40 : w2-50£»
+    w2=wlen/2+1; n2=40 : w2-50;   % Data1: n2=10 : w2-20Â£Â»Data2: n2=20 : w2-30Â£Â»Data3: n2=40 : w2-50Â£Â»
     frameTime = (((1:fn)-1)*inc+wlen/2)/Fs;
     freq = (n2-1)*Fs/wlen; Y=fft(y);
     Data1(i,:,:) = abs(Y(n2,:));
