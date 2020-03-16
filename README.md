@@ -10,3 +10,7 @@ The file named 'Classification models.py' is the machine learing models used for
 The file 'Feature extraction.m' is the time-frequency spectrogram and the traditional signal features. 
 
 The convolutional neural networks are implemented by keras tool and the backend is tensorflow. Other classification models are implemented by scikit-learn tool and some python packages. Run them in Anaconda3 (Spyder) platform. The signal processing methods are implemented by matlab R2014a.
+
+Corresponding author: Shuming Liu, 
+Professor, School of Environment, Tsinghua University
+E-mail: shumingliu@tsinghua.edu.cn
