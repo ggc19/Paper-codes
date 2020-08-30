@@ -1,4 +1,4 @@
-%%  Establish the 3D time frequency spectrogram
+%%  Establish the time-frequency spectrogram
 clear;clc;
 Data_Iron=xlsread('Read_Data_Iron_1.xlsx');       
 Data_MDPE=xlsread('Read_Data_MDPE_1.xlsx');  
@@ -99,7 +99,6 @@ for i=1: samples*3
         H_imf = -sum(prob.*log(prob+eps));       
         En(i,7+j) =H_imf;
     end
-    %RMS and Mean of whole signal, Mean dB of PSD, ZCR, SSE, TEO, ACER, EER, RMS and Shannon entropy of IMFs 1-3 (a total of 14 features)
     Feature(i,1)=Hb(i); Feature(i,2)=Ef(i); Feature(i,3)=En(i,1); Feature(i,4)=En(i,2); Feature(i,5)=En(i,3); Feature(i,6)=En(i,4); Feature(i,7)=Zcr(i); Feature(i,8)=coeff;
     Feature(i,9:14) = En(i, 5:10); 
 end 
