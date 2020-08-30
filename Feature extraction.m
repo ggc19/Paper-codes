@@ -17,9 +17,9 @@ Fs=4800; id=0;
 wlen=256; inc=64; win=hanning(wlen);   % different resolution corresponds to different 'wlen' and 'inc', 
 for i =1: samples
     temp = Data(i+id, :);
-    y = enframe(temp(2:end), win, inc)';    %  the data is framed
-    fn = size(y,2);                                      %  fn is the number of frame
-    w2=wlen/2+1; n2=40 : w2-50;   % Data1: n2=10 : w2-20£»Data2: n2=20 : w2-30£»Data3: n2=40 : w2-50£»
+    y = enframe(temp(2:end), win, inc)';
+    fn = size(y,2);                         
+    w2=wlen/2+1; n2=40 : w2-50;   
     frameTime = (((1:fn)-1)*inc+wlen/2)/Fs;
     freq = (n2-1)*Fs/wlen; Y=fft(y);
     Data1(i,:,:) = abs(Y(n2,:));
@@ -59,7 +59,7 @@ save Data1_noise1_y.mat Data1_noise1_y;
 save Data1_noise2.mat Data1_noise2;  
 save Data1_noise2_y.mat Data1_noise2_y;
 
-%% Extract features 
+%% Extract time or frequency domain features 
 Fs = 4800;  wlen = 4600;
 df = Fs/wlen; km = floor(wlen/8);   
 fx1 = fix(100/df)+1;  fx2 = fix(2400/df)+1;  
@@ -90,7 +90,6 @@ for i=1: samples*3
     Zcr(i)=sum(Leak1(1:end-1).*Leak1(2:end)<0);       
     auto_coef = xcorr(Leak1,'coeff');                  
     coeff = sum(auto_coef(wlen-5 : wlen+5).^2)/(sum(auto_coef(:).^2));   
-    % EMD, obtain the RMS and Shannon entropy of IMFs 1-3 
     imp=emd(Leak1);
     for j = 1 :3                                    
         En(i,4+j) = rms(abs(imp(j,:)));        
